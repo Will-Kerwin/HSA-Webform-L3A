@@ -1,0 +1,46 @@
+﻿@*@inherits Fluxor.Blazor.Web.Components.FluxorComponent;*@
+
+@if (isAuth)
+{
+    <div>
+        @Authorized
+    </div>
+}
+else
+{
+    <div>
+        @NotAuthorized
+    </div>
+}
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment? Authorized { get; set; }
+
+    [Parameter]
+    public RenderFragment? NotAuthorized { get; set; }
+
+    [Parameter]
+    public string? Role { get; set; }
+
+    public bool isAuth = false;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        //e.g. AuthState.Value.User.Email
+        if ("Valid user check" != null)
+        {
+            if (Role != null)
+                // role checker here
+                // e.g. Config.Roles.GetValueOrDefault(Role).Contains(AuthState.Value.User.Role)
+                if (true)
+                    isAuth = true;
+
+                else
+                    isAuth = false;
+        }
+    }
+}
