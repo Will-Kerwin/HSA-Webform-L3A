@@ -1,0 +1,12 @@
+﻿@page "/NewEmployee"
+@using HSA.Client.Util;
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent;
+
+<HeadContent>
+    <PageTitle>@Config.SectionData[FormState.Value.SectionNumber].SectionName</PageTitle>
+</HeadContent>
+
+<Stepper ActiveStep="@FormState.Value.SectionNumber" />
+<MudMainContent Style="width: 100%;" Class="mx-auto mt-3">
+    <DynamicComponent Type="@Config.SectionData[FormState.Value.SectionNumber].Component"/>
+</MudMainContent>

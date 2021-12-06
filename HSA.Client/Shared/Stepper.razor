@@ -1,0 +1,39 @@
+﻿@using HSA.Client.Util
+
+<MudAppBar Fixed="false" Elevation="0" Class="pa-6 d-none d-lg-block">
+    @foreach (var item in Config.SectionData)
+    {
+        if (item.Equals(Config.SectionData.Last()))
+        {
+            <div style="margin-left:auto; margin-right:auto; justify-items: center; text-align:center;">
+                <MudIcon Icon="@item.Icon" Title="@item.SectionName" Size="Size.Large" />
+                <MudText Typo="@Typo.h6">@item.SectionName</MudText>
+            </div>
+        }
+        else
+        {
+            <div style="margin-left:auto; margin-right:auto; justify-items: center; text-align:center;">
+
+                @if (ActiveStep > Config.SectionData.IndexOf(item))
+                {
+                <div style="border-radius:50%; background-color: @Color.Primary;">
+                    <MudIcon Icon="@Icons.Filled.Check" Title="@item.SectionName" Color="@Color.Primary" Size="Size.Large" Style="" />
+                    <MudText Typo="@Typo.h6">Completed</MudText>
+                </div>
+                }
+                else
+                {
+                    <div style="border-radius:50%; background-color: @Color.Primary;">
+                        <MudIcon Icon="@item.Icon" Title="@item.SectionName" Size="Size.Large" Style="border-radius: 50%;" />
+                    </div>
+                }
+                <MudText Typo="@Typo.h6">@item.SectionName</MudText>
+            </div>
+        }
+    }
+</MudAppBar>
+<MudAppBar Class="d-lg-none">
+    <div style="border-radius:50%; background-color: @Color.Primary;">
+        <MudIcon Icon="@Config.SectionData[ActiveStep].Icon" Title="@Config.SectionData[ActiveStep].SectionName" Size="Size.Large" Style="border-radius: 50%;" />
+    </div>
+</MudAppBar>

@@ -1,6 +1,13 @@
 ﻿@page "/"
-
-<PageTitle>Index</PageTitle>
-
-<h1>Hello, world!</h1>
-
+@inject NavigationManager navMgr
+<MudPaper Elevation="0" Class="pa-8" Style="width: 100%; background-color: #191414;">
+    <MudText Typo="Typo.h1" Align="Align.Center" Style="color:#fff;">Home Fire Safety Check</MudText>
+</MudPaper>
+<MudGrid Justify="Justify.Center" Class="pa-8">
+    <MudItem>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="min-width: 300px; min-height: 100px; " Size="Size.Large" OnClick="@(() => navMgr.NavigateTo("/login"))">I am a manager</MudButton>
+    </MudItem>
+    <MudItem>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Style="min-width: 300px; min-height: 100px; " Size="Size.Large" OnClick="@(() => navMgr.NavigateTo("/NewEmployee"))">I am a new employee</MudButton>
+    </MudItem>
+</MudGrid>

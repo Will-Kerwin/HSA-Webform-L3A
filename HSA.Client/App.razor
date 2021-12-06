@@ -1,8 +1,14 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
-    </Found>
+﻿<MudThemeProvider Theme="@Theme"/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<Router AppAssembly="@typeof(App).Assembly">
+        <Navigating>
+            <MudProgressCircular Color="Color.Primary" Indeterminate Size="Size.Large"/>
+        </Navigating>
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" />
+        </Found>
     <NotFound>
         <PageTitle>Not found</PageTitle>
         <LayoutView Layout="@typeof(MainLayout)">
@@ -10,3 +16,15 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+@code {
+    MudTheme Theme = new MudTheme()
+        {
+            Palette = new Palette()
+            {
+                Primary = "#ed2c2d",
+                Secondary = "#831F20",
+                AppbarBackground = "#191414"
+            },
+        };
+}
