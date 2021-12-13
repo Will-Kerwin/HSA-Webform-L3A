@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSA.Client", "HSA.Client\HS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSA.Server", "HSA.Server\HSA.Server.csproj", "{FF64A574-CB89-4388-89C1-4795EAB94D45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSA.Shared", "HSA.Shared\HSA.Shared.csproj", "{89FA4045-12A5-4E66-AC16-2BB97A1618ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HSA.Shared", "HSA.Shared\HSA.Shared.csproj", "{89FA4045-12A5-4E66-AC16-2BB97A1618ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

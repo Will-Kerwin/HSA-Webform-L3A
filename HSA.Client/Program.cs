@@ -1,3 +1,4 @@
+using Fluxor;
 using HSA.Client;
 using HSA.Client.Services;
 using Microsoft.AspNetCore.Components.Web;
@@ -18,5 +19,13 @@ builder.Services.AddHttpClient<AuthHttpService>(c =>
 });
 
 builder.Services.AddMudServices();
+
+var currentAssembly = typeof(App).Assembly;
+builder.Services.AddFluxor(options =>
+options
+.ScanAssemblies(currentAssembly)
+.UseRouting()
+.UseReduxDevTools()
+);
 
 await builder.Build().RunAsync();
