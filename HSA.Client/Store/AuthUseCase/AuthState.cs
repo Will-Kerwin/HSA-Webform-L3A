@@ -1,24 +1,18 @@
-﻿namespace HSA.Client.Store.AuthUseCase
+﻿using HSA.Shared.Models.User;
+
+namespace HSA.Client.Store.AuthUseCase
 {
     public class AuthState
     {
-        public AuthState(Guid iD, string firstName, bool isAuthenticated, string lastName, string trade, DateTime dateOfBirth, string role)
+        public AuthState(bool isAuthenticated, UserModel user, bool isLoading)
         {
-            ID = iD;
-            FirstName = firstName;
             IsAuthenticated = isAuthenticated;
-            LastName = lastName;
-            Trade = trade;
-            DateOfBirth = dateOfBirth;
-            Role = role;
+            User = user;
+            IsLoading = isLoading;
         }
 
-        public Guid ID { get; }
-        public string FirstName { get; }
+        public UserModel User { get; }
         public bool IsAuthenticated { get; }
-        public string LastName { get; }
-        public string Trade { get; }
-        public DateTime DateOfBirth { get; }
-        public string Role { get; }
+        public bool IsLoading { get; }
     }
 }

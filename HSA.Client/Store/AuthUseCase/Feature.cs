@@ -8,13 +8,8 @@ namespace HSA.Client.Store.AuthUseCase
 
         protected override AuthState GetInitialState() =>
             new AuthState(
-                    iD: Guid.Empty,
-                    firstName: "",
-                    lastName:"",
                     isAuthenticated: false,
-                    trade:"",
-                    dateOfBirth: DateTime.MinValue,
-                    role: ""
+                    user: new HSA.Shared.Models.User.UserModel()
                 );
     }
 }

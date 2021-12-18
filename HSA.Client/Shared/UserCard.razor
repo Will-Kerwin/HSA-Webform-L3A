@@ -1,0 +1,29 @@
+﻿@using Fluxor
+@using HSA.Client.Store.AuthUseCase
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent;
+<MudCard Elevation="0" Square="true" Class="@Class" Style="@Style">
+    <MudCardHeader>
+        <CardHeaderAvatar>
+            <MudAvatar>
+                @AuthState.Value.User.FirstName.Substring(0,1)@AuthState.Value.User.LastName.Substring(1,0)
+            </MudAvatar>
+        </CardHeaderAvatar>
+        <CardHeaderContent>
+            <MudText Typo="Typo.body2">@AuthState.Value.User.FirstName @AuthState.Value.User.LastName</MudText>
+            <MudText Typo="Typo.caption">@caption</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
+</MudCard>
+
+@code {
+    [Parameter] public string Class { get; set; }
+    [Parameter] public string Style { get; set; }
+    [Inject] public IState<AuthState> AuthState { get; set; }
+
+    string caption = "";
+
+    protected override void OnInitialized()
+    {
+        caption = AuthState.Value.User.Role != "Employee" ? AuthState.Value.User.Role : AuthState.Value.User.Trade;
+    }
+}

@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace HSA.Shared.Models
+namespace HSA.Shared.Models.Assesment
 {
     public class AssesmentQuestions
     {
